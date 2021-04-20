@@ -26,11 +26,26 @@ Notification must be sent when a new report is available.
 
 List the dependencies of the Analysis-functionality.
 
-1. Access to the Server containing the telemetrics in a csv file
-1. _enter dependency
-1. _enter dependency
-
-(add more if needed)
+1. __Access to the Server containing the telemetrics in a csv file__  
+1. __Accessing Notification medium.__    
+    _Remark: As the way of notifying is not mentioned : let us assume it to be a mail client._  
+           _Accessing a mail client(SMTP server)_
+1. __Accessing the Server to store the pdf file.__    
+    _Remark: Before it was reading a file from server now it is writing a file into the server._
+   _As they are two different aspects of accessing i wanted to mention them explicitly._
+1. __PDF creation.__    
+    _Remark: Mostly we use third party tools to create PDFs. Hence listed under dependency._
+1. __Recording Trends in a beautiful fashion.__    
+    _Remark: Not really sure how trend recording is going to be depicted._  
+    _If third party libraries are used to generate pictures or graphs for easy visualisation_    
+    _in the PDFs then this could be a dependency_
+1. __Accessing Battery temparature values.__  
+    _Remark: Assuming our telemetrics is about the Battery parameter __Temparature__ ._  
+    _Temparature values are read using ADC. Normally one unit reads the temp sensor ADC signals_  
+    _and gives out the processed results to other units. So one or the other unit should supply_  
+    _data of battery temparature to our analysis function._  
+    _Hence accessing Battery temparature is also a dependency for the Analysis function_  
+ 
 
 ### Mark the System Boundary
 
