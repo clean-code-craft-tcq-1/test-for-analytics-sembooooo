@@ -56,13 +56,13 @@ List the dependencies of the Analysis-functionality.
 What is included in the software unit-test? What is not? Fill this table.
 
 | Item                      | Included?     | Reasoning / Assumption
-|---------------------------|---------------|---
+|---------------------------|---------------|-----------------------------------------
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | _enter Yes/No | _enter reasoning
-Counting the breaches       | _enter Yes/No | _enter reasoning
-Detecting trends            | _enter Yes/No | _enter reasoning
-Notification utility        | _enter Yes/No | _enter reasoning
+Off-the-shelf PDF converter | No            | Third party libraries or APIs
+Counting the breaches       | Yes           | This is part of the software being developed
+Detecting trends            | Yes           | This is part of the software being developed
+Notification utility        | No            | Third party libraries or APIs
 
 ### List the Test Cases
 
@@ -83,12 +83,50 @@ Consider the tests for each functionality below.
 In those tests, identify inputs and outputs.
 Enter one part that's real and another part that's faked/mocked.
 
-| Functionality            | Input        | Output                      | Faked/mocked part
-|--------------------------|--------------|-----------------------------|---
-Read input from server     | csv file     | internal data-structure     | Fake the server store
-Validate input             | csv data     | valid / invalid             | None - it's a pure function
-Notify report availability | _enter input | _enter output               | _enter fake or mock
-Report inaccessible server | _enter input | _enter output               | _enter fake or mock
-Find minimum and maximum   | _enter input | _enter output               | _enter fake or mock
-Detect trend               | _enter input | _enter output               | _enter fake or mock
-Write to PDF               | _enter input | _enter output               | _enter fake or mock
+#### Few points on the below table :Srikar Sana
+On the first glance seeing your comments i understood that test under discussion is not unit test.
+But some times , according to my little experience, few things could be verified at unit test level too.
+So I would like to give my answer with an explanation in two piece format, one for UT and one more for higher level test.
+I am not really sure if this is even allowed. lol. I feel like i am changing question paper. double lol.
+
+
+__Test under discussion : HIGHER LEVEL TEST__
+
+| Functionality            | Input                                      | Output                                        | Faked/mocked part
+|--------------------------|--------------------------------------------|-----------------------------------------------|---
+Read input from server     | csv file                                   | internal data-structure                       | Fake the server store
+Validate input             | csv data                                   | valid / invalid                               | None - it's a pure function
+Notify report availability | PDF file availability                      | Console(printf)/an email to dummy client      | fake is sufficient                        
+Report inaccessible server | server address-port number/link to file    | return value from the API                     | fake - please refer explanation below
+Find minimum and maximum   | csv data                                   | internal data-structure                       | None - it's a pure function
+Detect trend               | csv data                                   | internal data-structure                       | None - it's a pure function
+Write to PDF               | internal data-structure(s)                 | pdf file in fake server store/console output  | fake is sufficient   
+
+
+__Notify report availability:__ A fake that sends an email to some testing email address.  
+ So the testing reciever frame work can respond back to us telling that email recieved upon succesful recieving.
+
+__Report inaccessible server:__ I could have sticked to it as mock as the output needs to be manipulated. But my second thought  
+upon reading the statement made by you "Fake the server store" in the first row last column of the table.  
+If a fake server store is already created in the infrastructure then we need to create a situation so it responds as inaccessible server.
+But if we say that the fake server store has nothing to do with report inaccessible server api test framework then mock could have been my answer.
+
+Output: Once the return value of the API is read then it is upto analysis function to decide how the output  
+should be conveyed to the user (whether it has to print on console as an error or glow an led on the pannel  
+or display an error code in LCD display). Hence mentioned ```return value from the API``` as output.
+
+__Write to PDF:__ As we have a fake server store created already i would really prefer to have a fake pdf file generated on the server.
+
+
+
+__Test under discussion : UNIT TEST__
+
+If the test under discussion is Unit Test , I would say everything as a mock as we need to know the following during Unit Test
+1. whether a particular API is called or not                     
+1. parameters given passed to it
+1. manipulation of return values
+
+A little reasoning why i chose the above is mentioned below
+1. __Notify report availability__  
+ if report is available then only then a notification is sent to the end user.  
+ In testing a fake is sufficient
