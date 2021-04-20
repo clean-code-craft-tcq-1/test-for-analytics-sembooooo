@@ -44,7 +44,11 @@ List the dependencies of the Analysis-functionality.
     _Temparature values are read using ADC. Normally one unit reads the temp sensor ADC signals_  
     _and gives out the processed results to other units. So one or the other unit should supply_  
     _data of battery temparature to our analysis function._  
-    _Hence accessing Battery temparature is also a dependency for the Analysis function_  
+    _Hence accessing Battery temparature is also a dependency for the Analysis function_ 
+1. __Accessing Date and Time from the system__
+    _Remark: As there is a requirement to record trends (date & time when the reading was continuously increasing for 30 minutes)_  
+    _For time markers we might need to access date and time from the system_
+
  
 
 ### Mark the System Boundary
