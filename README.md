@@ -84,10 +84,10 @@ In those tests, identify inputs and outputs.
 Enter one part that's real and another part that's faked/mocked.
 
 #### Few points on the below table :Srikar Sana
-On the first glance seeing your comments i understood that test under discussion is not unit test.
-But some times , according to my little experience, few things could be verified at unit test level too.
-So I would like to give my answer with an explanation in two piece format, one for UT and one more for higher level test.
-I am not really sure if this is even allowed. lol. I feel like i am changing question paper. double lol.
+_On the first glance seeing your comments i understood that test under discussion is not unit test._  
+_But some times , according to my little experience, few things can be verified at unit test level too._  
+_So I would like to give my answer with an explanation in two piece format, one for UT and one more for higher level test._  
+_I am not really sure if this is even allowed. lol. I feel like i am changing question paper._  
 
 
 __Test under discussion : HIGHER LEVEL TEST__
@@ -125,8 +125,3 @@ If the test under discussion is Unit Test , I would say everything as a mock as 
 1. whether a particular API is called or not                     
 1. parameters given passed to it
 1. manipulation of return values
-
-A little reasoning why i chose the above is mentioned below
-1. __Notify report availability__  
- if report is available then only then a notification is sent to the end user.  
- In testing a fake is sufficient
