@@ -65,10 +65,10 @@ What is included in the software unit-test? What is not? Fill this table.
 |---------------------------|---------------|-----------------------------------------
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | No            | Third party libraries or APIs. We shall only check if they are getting called or not.
+Off-the-shelf PDF converter | No            | Third party libraries or APIs. We shall test number of calls to it , inputs and outputs.
 Counting the breaches       | Yes           | This is part of the software being developed
 Detecting trends            | Yes           | This is part of the software being developed
-Notification utility        | No            | Third party libraries or APIs. We shall only check if they are getting called or not.
+Notification utility        | No            | Third party libraries or APIs. We shall test number of calls to it , inputs and outputs.
 
 ### List the Test Cases
 
