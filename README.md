@@ -2,7 +2,7 @@
 
 Design tests for Analytics functionality on a Battery Monitoring System.
 
-Fill the parts marked '_enter' in the **Tasks** section below.
+Fill the parts marked '_ enter' in the **Tasks** section below.
 
 ## Analysis-functionality to be tested
 
@@ -70,10 +70,26 @@ Write tests in the form of `<expected output or action>` from `<input>` / when `
 
 Add to these tests:
 
-1. Write minimum and maximum to the PDF from a csv containing positive and negative readings
-1. Write "Invalid input" to the PDF when the csv doesn't contain expected data
-1. _enter a test
-1. _enter a test
+1. Write minimum and maximum to the PDF from a csv containing positive and negative readings.
+1. Write "Invalid input" to the PDF when the csv doesn't contain expected data.
+   _Remark "Contain expected data" :By this i am assuming this to a requirment which was given to us during the assignments._    
+   _If data crosses beyond certain limit then it is not trustable._  
+1. Write/Draw a TREND (increasing of values for 30mins contiously) to the PDF from a csv containing positive and negative readings.
+1. Write "No increasing trend in values " to the PDF when the csv doesnt contain any trends.
+1. Write the number of breaches to the PDF from a csv containing positive and negative readings.
+1. Write "No breaches found" to the PDF when the csv doesnt contain any breaches.
+1. Verify if PDF is stored on the server location after analysis.
+1. Verify if the user is notified if the server to store CSV/PDF is not accessible for reading.
+1. Verify if the user is notified if the server to store CSV/PDF is not accessible for writing.
+1. Verify if the notification is sent after every new PDF generation.
+1. Verify if the data is written to PDF in the "defined" Format.
+    _Remark: My intention here is not to verify the third party converters but the way we are using the third party PDF_    
+    _generators_
+1. Verify if only one month telemetrics is stored in CSV.
+1. Verify if battery telemetrics is stored in proper format in CSV.
+   By format i mean, every sample of the data should be having date and time stamp.  
+   The data should be depicted in a predefined (agreed) format. 
+
 
 (add more)
 
