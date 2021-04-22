@@ -79,9 +79,10 @@ Add to these tests:
 1. Write the number of breaches to the PDF from a csv containing positive and negative readings.
 1. Write "No breaches found" to the PDF when the csv doesnt contain any breaches.
 1. Verify if PDF is stored on the server location after analysis.
-1. Verify if the user is notified if the server to store CSV/PDF is not accessible for reading.
-1. Verify if the user is notified if the server to store CSV/PDF is not accessible for writing.
+1. Verify if the user is notified with appropriate message if the server to store CSV/PDF is not accessible for reading.
+1. Verify if the user is notified with appropriate message if the server to store CSV/PDF is not accessible for writing.
 1. Verify if the notification is sent after every new PDF generation.
+1. Verify if the user is notified with appropriate message if the Notification medium is not being sent.  
 1. Verify if the data is written to PDF in the "defined" Format.
     _Remark: My intention here is not to verify the third party converters but the way we are using the third party PDF_    
     _generators_
@@ -89,9 +90,6 @@ Add to these tests:
 1. Verify if battery telemetrics is stored in proper format in CSV.
    By format i mean, every sample of the data should be having date and time stamp.  
    The data should be depicted in a predefined (agreed) format. 
-
-
-(add more)
 
 ### Recognize Fakes and Reality
 
