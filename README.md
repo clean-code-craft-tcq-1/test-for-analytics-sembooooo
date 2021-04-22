@@ -20,6 +20,12 @@ Analysis must be done on this csv file to find the following:
 A PDF report of the analysis must be stored every week.
 Notification must be sent when a new report is available.
 
+
+### doubt in the above requirements
+CSV file is generated and stored every month but PDF is stored every week.
+Moreover PDF is generated every week after analysing CSV file that is only generated over a month.
+Is that a typo over there ? or is that voluntarily written like that ? or Am i missing something ?
+
 ## Tasks
 
 ### List Dependencies
@@ -59,10 +65,10 @@ What is included in the software unit-test? What is not? Fill this table.
 |---------------------------|---------------|-----------------------------------------
 Battery Data-accuracy       | No            | We do not test the accuracy of data
 Computation of maximum      | Yes           | This is part of the software being developed
-Off-the-shelf PDF converter | No            | Third party libraries or APIs
+Off-the-shelf PDF converter | No            | Third party libraries or APIs. We shall only check if they are getting called or not.
 Counting the breaches       | Yes           | This is part of the software being developed
 Detecting trends            | Yes           | This is part of the software being developed
-Notification utility        | No            | Third party libraries or APIs
+Notification utility        | No            | Third party libraries or APIs. We shall only check if they are getting called or not.
 
 ### List the Test Cases
 
@@ -79,32 +85,25 @@ Add to these tests:
 1. Write the number of breaches to the PDF from a csv containing positive and negative readings.
 1. Write "No breaches found" to the PDF when the csv doesnt contain any breaches.
 1. Verify if PDF is stored on the server location after analysis.
-1. Verify if the user is notified with appropriate message if the server to store CSV/PDF is not accessible for reading.
-1. Verify if the user is notified with appropriate message if the server to store CSV/PDF is not accessible for writing.
+1. Verify if the appropriate user is notified with appropriate message if the server to store CSV/PDF is not accessible for reading.
+1. Verify if the appropriate user is notified with appropriate message if the server to store CSV/PDF is not accessible for writing.
 1. Verify if the notification is sent after every new PDF generation.
 1. Verify if the user is notified with appropriate message if the Notification medium is not being sent.  
-1. Verify if the data is written to PDF in the "defined" Format.
+1. Verify if the data is written to PDF in the "defined" Format.  
     _Remark: My intention here is not to verify the third party converters but the way we are using the third party PDF_    
     _generators_
 1. Verify if only one month telemetrics is stored in CSV.
 1. Verify if battery telemetrics is stored in proper format in CSV.
-   By format i mean, every sample of the data should be having date and time stamp.  
-   The data should be depicted in a predefined (agreed) format. 
+   By format i mean, every sample of the data should be having date and time stamp for analysis function.  
+   As the CSV is now an interface, the data should be depicted in a predefined (agreed) format. 
+1. Verify if new PDF is stored every week.  
+ _(still the requirement is ambigious to me. Please find the remark in ```doubt in the above requirements``` section)_
 
 ### Recognize Fakes and Reality
 
 Consider the tests for each functionality below.
 In those tests, identify inputs and outputs.
 Enter one part that's real and another part that's faked/mocked.
-
-#### Few points on the below table :Srikar Sana
-_On the first glance seeing your comments i understood that test under discussion is not unit test._  
-_But some times , according to my little experience, few things can be verified at unit test level too._  
-_So I would like to give my answer with an explanation in two piece format, one for UT and one more for higher level test._  
-_I am not really sure if this is even allowed. lol. I feel like i am changing question paper._  
-
-
-__Test under discussion : HIGHER LEVEL TEST__
 
 | Functionality            | Input                                      | Output                                        | Faked/mocked part
 |--------------------------|--------------------------------------------|-----------------------------------------------|---
@@ -125,17 +124,8 @@ upon reading the statement made by you "Fake the server store" in the first row 
 If a fake server store is already created in the infrastructure then we need to create a situation so it responds as inaccessible server.
 But if we say that the fake server store has nothing to do with report inaccessible server api test framework then mock could have been my answer.
 
-Output: Once the return value of the API is read then it is upto analysis function to decide how the output  
-should be conveyed to the user (whether it has to print on console as an error or glow an led on the pannel  
+Output: Once the return value of the API is read then it is upto diagnostic function, another function which handles  
+all the exceptions ,to decide how the output should be conveyed to the user (whether it has to print on console as an error or glow an led on the pannel)   
 or display an error code in LCD display). Hence mentioned ```return value from the API``` as output.
 
 __Write to PDF:__ As we have a fake server store created already i would really prefer to have a fake pdf file generated on the server.
-
-
-
-__Test under discussion : UNIT TEST__
-
-If the test under discussion is Unit Test , I would say everything as a mock as we need to know the following during Unit Test
-1. whether a particular API is called or not                     
-1. parameters given passed to it
-1. manipulation of return values
