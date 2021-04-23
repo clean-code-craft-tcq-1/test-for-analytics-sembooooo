@@ -104,6 +104,18 @@ Add to these tests:
    As the CSV is now an interface, the data should be depicted in a predefined (agreed) format. 
 1. Verify if new PDF is stored every week.  
  _(still the requirement is ambigious to me. Please find the remark in ```doubt in the above requirements``` section)_
+1. Verify if the PDF and CSV are only stored once not twice or thrice in the server
+1. Storing of the PDF file is ongoing and now server is unreachable all of a sudden, then during next time,  
+   already present PDF should be deleted and a write should be triggered again.  
+   (Some time what happens is a pdf file will be present but in corrupted state because of unsuccessful writing/storing
+   Hence such uncorrupted copies should be deleted so that even confusion can be eleminated )
+1. When reading the CSV from the server if the server is inaccessible then maximum of 10 attempts to read should be performed  
+    before displaying an error message.(contains design decision)
+1. When storing a PDF ,If a server is not accessible verify if reconnecting to the server happens 10 times(design decision) and then  
+   display error message (contains design decision)
+1. If the above robustness issues are recurring for 4 more counts , connection problem should be reported to the user.  
+    (contains design decision)
+
 
 ### Recognize Fakes and Reality
 
