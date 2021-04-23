@@ -22,9 +22,14 @@ Notification must be sent when a new report is available.
 
 
 ### doubt in the above requirements
-CSV file is generated and stored every month but PDF is stored every week.
-Moreover PDF is generated every week after analysing CSV file that is only generated over a month.
-Is that a typo over there ? or is that voluntarily written like that ? or Am i missing something ?
+1. CSV file is generated and stored every month but PDF is stored every week.  
+Moreover PDF is generated every week after analysing CSV file that is only generated over a month.  
+Is that a typo over there ? or is that voluntarily written like that ? or Am i missing something ?  
+1. In which system the Analysis function is present ? The requirements sounds to me that analysis function is   present not in the bms system/ server but some where else as we are reading the CSV stored in the server.  
+So is this a system of systems ?  
+or is it present in the BMS system itself ?   
+I am assuming it to be in a third system (which is expensive though).  
+1. Where should the PDF be stored ? Hence i am assuming that it is stored in the server where CSV is stored.  
 
 ## Tasks
 
