@@ -28,7 +28,8 @@ Is that a typo over there ? or is that voluntarily written like that ? or Am i m
 1. In which system the Analysis function is present ? The requirements sounds to me that analysis function is   present not in the bms system/ server but some where else as we are reading the CSV stored in the server.  
 So is this a system of systems ?  
 or is it present in the BMS system itself ?   
-I am assuming it to be in a third system (which is expensive though).  
+I am assuming it to be in a third system so it has to access server to get the CSV file (which is expensive though).  
+(assumption based on the list of dependencies first point given by examiner)  
 1. Where should the PDF be stored ? Hence i am assuming that it is stored in the server where CSV is stored.  
 
 ## Tasks
